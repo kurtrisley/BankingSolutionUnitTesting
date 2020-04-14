@@ -11,7 +11,7 @@ namespace BankingTests
         [Fact]
         public void NewAccountsHaveAppropriateBalance()
         {
-            // Write the Code Tou Wish Tou Had (WTCYWYH) (Corey Haines)
+            // Write the Code You Wish You Had (WTCYWYH) (Corey Haines)
 
             BankAccount account = new BankAccount();
 
@@ -34,7 +34,7 @@ namespace BankingTests
         }
 
         [Fact]
-        public void WithdrawalsDecreaseBalsnce()
+        public void WithdrawalsDecreaseBalance()
         {
             // (Arrange) Given - I have a new account and I have the balance of that account
             var account = new BankAccount();
@@ -43,7 +43,7 @@ namespace BankingTests
             // (Act) When I deposit $100.
             account.Withdraw(amountToWithdraw);
             // (Assert) Then the accounts balance should be the opening balance plus 100.
-            Assert.Equal(openingBalance + amountToWithdraw, account.GetBalance());
+            Assert.Equal(openingBalance - amountToWithdraw, account.GetBalance());
         }
     }
 }
