@@ -10,7 +10,8 @@ namespace BankingDomain
             return balance;
         }
 
-        public void Deposit(decimal amountToDeposit)
+        // virtual = overrideable
+        public virtual void Deposit(decimal amountToDeposit)
         {
             balance += amountToDeposit;
         }
