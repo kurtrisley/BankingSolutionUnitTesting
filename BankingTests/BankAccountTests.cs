@@ -12,11 +12,13 @@ namespace BankingTests
         public void NewAccountsHaveAppropriateBalance()
         {
             // Write the Code You Wish You Had (WTCYWYH) (Corey Haines)
-
+            // (Arrange)
             BankAccount account = new BankAccount();
 
+            // (Act)
             decimal balance = account.GetBalance();
 
+            // (Assert)
             Assert.Equal(1200M, balance);
         }
 
@@ -27,8 +29,10 @@ namespace BankingTests
             var account = new BankAccount();
             var openingBalance = account.GetBalance();
             var amountToDeposit = 100M;
+
             // (Act) When I deposit $100.
             account.Deposit(amountToDeposit);
+
             // (Assert) Then the accounts balance should be the opening balance plus 100.
             Assert.Equal(openingBalance + amountToDeposit, account.GetBalance());
         }
@@ -40,8 +44,10 @@ namespace BankingTests
             var account = new BankAccount();
             var openingBalance = account.GetBalance();
             var amountToWithdraw = 100M;
+
             // (Act) When I deposit $100.
             account.Withdraw(amountToWithdraw);
+
             // (Assert) Then the accounts balance should be the opening balance plus 100.
             Assert.Equal(openingBalance - amountToWithdraw, account.GetBalance());
         }
