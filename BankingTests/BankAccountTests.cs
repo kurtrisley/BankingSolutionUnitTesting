@@ -1,4 +1,5 @@
 ﻿using BankingDomain;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +14,8 @@ namespace BankingTests
 
         public BankAccountTests()
         {
-            Account = new BankAccount(new DummyBonusCalculator());
+            Account = new BankAccount(new Mock<ICalculateAccountBonuses>().Object,
+                new Mock<INotifyTheFeds>().Object);
             OpeningBalance = Account.GetBalance();
         }
 
@@ -22,14 +24,15 @@ namespace BankingTests
         {
             // Write the Code You Wish You Had (WTCYWYH) (Corey Haines)
             // (Arrange)
-            BankAccount account = new BankAccount(new DummyBonusCalculator());
+            //BankAccount account = new BankAccount(new DummyBonusCalculator());
 
             // (Act)
-            decimal balance = account.GetBalance();
+            //decimal balance = account.GetBalance();
 
             // (Assert)
-            Assert.Equal(1200M, balance);
+            Assert.Equal(1200M, OpeningBalance);
         }
+
 
         [Fact]
         public void DepositingIncreasesBalance()
